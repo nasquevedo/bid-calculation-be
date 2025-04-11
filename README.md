@@ -26,6 +26,12 @@ Once the repository was cloned, go to the project ```cd bid-calculation-be```
 
 And create the .env file based on .env.local ```cp .env.local .env```
 
+Install the dependecis with composer
+
+```sh
+composer install
+```
+
 Run docker compose to create the image and container
 
 ```sh
