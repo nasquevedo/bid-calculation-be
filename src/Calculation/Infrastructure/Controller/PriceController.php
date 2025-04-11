@@ -20,7 +20,6 @@ final class PriceController extends AbstractController
     #[Route('/price', name: 'app_price', methods: ['get'])]
     public function price(Request $request): JsonResponse
     {
-        dd($request->getContent());die;
         $vehicleBasePrice = $request->query->get('price');
         $vehicleTypeId = $request->query->get('type');
         $data = $this->priceApplication->getPrice((float)$vehicleBasePrice, (int)$vehicleTypeId);
