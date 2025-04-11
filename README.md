@@ -22,7 +22,11 @@ First, clone the repository
 git clone https://github.com/nasquevedo/bid-calculation-be.git
 ```
 
-Once the repository was cloned, run docker compose to create the image and container
+Once the repository was cloned, go to the project ```cd bid-calculation-be``` 
+
+And create the .env file based on .env.local ```cp .env.local .env```
+
+Run docker compose to create the image and container
 
 ```sh
 docker-compose up -d --build
