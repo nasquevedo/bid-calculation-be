@@ -7,27 +7,46 @@
 
 ### Setting up:
 
-First, clone the repository:<br>
-- <code>git clone https://github.com/nasquevedo/bid-calculation-be.git</code>
+First, clone the repository
 
-Once the repository was cloned, run docker compose to create the image and container:</br>
-- <code>docker-compose up -d --build</code>
+```sh
+git clone https://github.com/nasquevedo/bid-calculation-be.git
+```
 
-Then, create the database:<br>
-- <code>docker exec symfony php bin/console doctrine:database:create</code>
+Once the repository was cloned, run docker compose to create the image and container
 
-Finally, run the migrations:<br>
-- <code>docker exec symfony php bin/console doctrine:migrations:migrate</code>
+```sh
+docker-compose up -d --build
+```
+
+Then, create the database
+
+```sh
+docker exec symfony php bin/console doctrine:database:create
+```
+
+Finally, run the migrations
+
+```sh
+docker exec symfony php bin/console doctrine:migrations:migrate
+```
 
 
 ### PHP commands
-generate a new migration:<br>
-- <code>docker exec symfony php bin/console doctrine:migrations:generate</code>
+generate a new migration
 
-generate a new entity:<br>
-- <code>docker exec <container> php bin/console make:entity</code>
+```sh
+docker exec symfony php bin/console doctrine:migrations:generate
+```
 
-generate a new controller:<br>
-- <code>docker exec <container> php bin/console make:controller NameController</code>
+generate a new entity
+```sh
+docker exec <container> php bin/console make:entity
+```
+
+generate a new controller
+```sh
+docker exec <container> php bin/console make:controller NameController
+```
 
 ## Testing
