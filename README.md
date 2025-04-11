@@ -3,7 +3,7 @@
 This project is a Rest API for calculating the total price of a vehicle. It contains two routes to get the price and vehicle type. It is designed with layers like clean architecture and onion architecture, following the SOLID and clean code principles.
 
 It contains two routes:.\
-`` api/v1/vehicle/type ``.\
+`` /api/v1/vehicle/type ``.\
 Get the vehicle types to be shown on the select
 
 ``/api/v1/price?price=&type=``.\
