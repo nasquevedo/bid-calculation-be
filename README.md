@@ -1,5 +1,14 @@
 ## The Bid Calculation
 
+This project is a Rest API to calculate the total price of a vehicle, it contains two routes to get the price and vehicle type, designed with an architecture with layers such as clean architecture and onion architecture, following the SOLID and clean code principles.
+
+It contains two routes:.\
+`` api/v1/vehicle/type ``.\
+Get the vehicle types to be shown on the select
+
+``/api/v1/price?price=&type=``.\
+Get a summary of the values to determine the total price
+
 ### requirements
 - php8.3
 - mysql8
@@ -31,6 +40,8 @@ Finally, run the migrations
 docker exec symfony php bin/console doctrine:migrations:migrate
 ```
 
+Now, it could be testing via postman, using the next url and the endpoins mentioned in the description
+[HTTP://localhost](HTTP://localhost)
 
 ### PHP commands
 generate a new migration
