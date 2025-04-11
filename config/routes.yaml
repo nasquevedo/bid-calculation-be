@@ -1,0 +1,5 @@
+controllers:
+    resource:
+        path: ../src/Calculation/Infrastructure/Controller/
+        namespace: App\Calculation\Infrastructure\Controller
+    type: attribute

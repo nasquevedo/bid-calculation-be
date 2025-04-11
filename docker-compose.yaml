@@ -1,0 +1,33 @@
+services:
+  web:
+    build: .
+    container_name: symfony
+    ports:
+      - "80:80"
+    volumes: 
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - bid_calculation_network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    expose:
+      - '3306'
+    volumes:
+      - my_db:/var/lib/mysql
+    networks:
+      - bid_calculation_network
+
+volumes:
+  my_db:
+
+networks:
+  bid_calculation_network:
