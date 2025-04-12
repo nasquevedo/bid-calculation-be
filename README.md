@@ -72,3 +72,24 @@ docker exec <container> php bin/console make:controller NameController
 ```
 
 ## Testing
+First, create the database for testing
+
+```sh
+docker exec symfony php bin/console doctrine:database:create --env=test
+```
+
+It will create a schema called test_test. Then, run the following command to make the migrations
+
+```sh
+docker exec symfony php bin/console doctrine:migrations:migrate --env=test
+```
+
+Finally, execute the following command to run all tests
+```sh
+docker exec symfony php bin/phpunit
+```
+
+Run a specific test
+```sh
+docker exec symfony php bin/phpunit tests/<test folder>/<test file>
+```
