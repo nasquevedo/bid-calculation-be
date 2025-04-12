@@ -1,9 +1,9 @@
 ## The Bid Calculation
 
-This project is a Rest API to calculate the total price of a vehicle, it contains two routes to get the price and vehicle type, designed with an architecture with layers such as clean architecture and onion architecture, following the SOLID and clean code principles.
+This project is a Rest API for calculating the total price of a vehicle. It contains two routes to get the price and vehicle type. It is designed with layers like clean architecture and onion architecture, following the SOLID and clean code principles.
 
 It contains two routes:.\
-`` api/v1/vehicle/type ``.\
+`` /api/v1/vehicle/type ``.\
 Get the vehicle types to be shown on the select
 
 ``/api/v1/price?price=&type=``.\
@@ -11,8 +11,9 @@ Get a summary of the values to determine the total price
 
 ### requirements
 - php8.3
-- mysql8
+- mysql8.0
 - Composer2.8
+- Docker28.0.4 
 
 ### Setting up:
 
@@ -22,7 +23,17 @@ First, clone the repository
 git clone https://github.com/nasquevedo/bid-calculation-be.git
 ```
 
-Once the repository was cloned, run docker compose to create the image and container
+Once the repository was cloned, go to the project ```cd bid-calculation-be``` 
+
+And create the .env file based on .env.local ```cp .env.local .env```
+
+Install the dependecis with composer
+
+```sh
+composer install
+```
+
+Run docker compose to create the image and container
 
 ```sh
 docker-compose up -d --build
