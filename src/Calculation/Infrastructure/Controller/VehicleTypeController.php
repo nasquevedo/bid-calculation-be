@@ -2,6 +2,7 @@
 
 namespace App\Calculation\Infrastructure\Controller;
 
+use App\Calculation\Application\Service\ResponseServiceInterface;
 use App\Calculation\Application\VehicleTypeApplicationInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,7 +15,8 @@ final class VehicleTypeController extends AbstractController
 {
 
     public function __construct(
-        private VehicleTypeApplicationInterface $vehicleTypeApplication
+        private VehicleTypeApplicationInterface $vehicleTypeApplication,
+        private ResponseServiceInterface $responseService
     ) {}
 
     #[Route('/vehicle/types', name: 'app_vehicle_types', methods: ['get'])]
@@ -22,9 +24,6 @@ final class VehicleTypeController extends AbstractController
     {
         $vehicleTypes = $this->vehicleTypeApplication->getVehicleTypes()->getVehicleTypeArray();
         
-        return $this->json([
-            'data' => $vehicleTypes,
-            'message' => 'success',
-        ], Response::HTTP_OK);
+        return $this->responseService->successResponse($vehicleTypes);
     }
 }

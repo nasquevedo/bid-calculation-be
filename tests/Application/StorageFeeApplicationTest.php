@@ -18,13 +18,12 @@ class StorageFeeApplicationTest extends TestCase
             ->willReturn(["value" => 100])
         ;
 
-        $associtionFee = new StorageFeeApplication($ruleService);
-        $basicFee = $associtionFee->getStorageFee(398, 1);
-        $equals = [
-            "name" => 'Storage',
-            "value" => 100
-        ];
+        $storageFeeApplication = new StorageFeeApplication($ruleService);
+        $storageFee = $storageFeeApplication->getStorageFee(398, 1);
+        $storageFeeArray = $storageFee->getArray();
 
-        $this->assertEquals($equals, $basicFee->getArray());
+        $this->assertIsArray($storageFeeArray);
+        $this->assertEquals("Storage", $storageFeeArray["name"]);
+        $this->assertEquals(100, $storageFeeArray["value"]);
     }
 }

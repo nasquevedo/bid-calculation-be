@@ -22,13 +22,12 @@ class AssociationFeeApplicationTest extends TestCase
                 ["min"=> 3000, "value"=> 20]])
         ;
 
-        $associtionFee = new AsssociationFeeApplication($ruleService);
-        $basicFee = $associtionFee->getAssociationFee(398, 1);
-        $equals = [
-            "name" => 'Association',
-            "value" => 5.0
-        ];
+        $associtionFeeApplication = new AsssociationFeeApplication($ruleService);
+        $associationFee = $associtionFeeApplication->getAssociationFee(398, 1);
+        $associationFeeArray = $associationFee->getArray();
 
-        $this->assertEquals($equals, $basicFee->getArray());
+        $this->assertIsArray($associationFeeArray);
+        $this->assertEquals('Association', $associationFeeArray['name']);
+        $this->assertEquals(5, $associationFeeArray['value']);
     }
 }

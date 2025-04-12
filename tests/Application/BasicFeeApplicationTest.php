@@ -36,10 +36,11 @@ class BasicFeeApplicationTest extends TestCase
 
         $basicFeeApp = new BasicFeeApplication($ruleService, $calculateService);
         $basicFee = $basicFeeApp->getBasicFee(398, 1);
+        $basicFeeArray = $basicFee->getArray();
 
-        $this->assertIsArray($basicFee->getArray());
-        $this->assertEquals('Basic', $basicFee['name']);
-        $this->assertEquals(39.80, "value");
+        $this->assertIsArray($basicFeeArray);
+        $this->assertEquals('Basic', $basicFeeArray['name']);
+        $this->assertEquals(39.80, $basicFeeArray['value']);
     }
 
     public function testBasicFeeLuxury()
@@ -66,7 +67,10 @@ class BasicFeeApplicationTest extends TestCase
 
         $basicFeeApp = new BasicFeeApplication($ruleService, $calculateService);
         $basicFee = $basicFeeApp->getBasicFee(1800, 1);
+        $basicFeeArray = $basicFee->getArray();
 
-        $this->assertIsArray($basicFee->getArray());
+        $this->assertIsArray($basicFeeArray);
+        $this->assertEquals('Basic', $basicFeeArray['name']);
+        $this->assertEquals(180.00, $basicFeeArray['value']);
     }
 }

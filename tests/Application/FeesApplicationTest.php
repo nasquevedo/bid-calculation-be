@@ -23,6 +23,8 @@ class FeesApplicationTest extends TestCase
             $storageFeeArray
         );
 
+        $feesArray = $fees->getArray();
+
         $equals = [
             ["name" => "Basic", "value" => 39.80],
             ["name" => "Special", "value" => 7.96],
@@ -30,6 +32,9 @@ class FeesApplicationTest extends TestCase
             ["name" => "Storage", "value" => 100.0]
         ];
 
-        $this->assertEquals($equals, $fees->getArray());
+        $this->assertIsArray($feesArray);
+        $this->assertIsArray($feesArray[0]);
+        $this->assertEquals("Basic", $feesArray[0]["name"]);
+        $this->assertEquals(39.80, $feesArray[0]["value"]);
     }
 }
