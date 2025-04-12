@@ -11,12 +11,12 @@ class RuleService implements RuleServiceInterface
     )
     {}
 
-    public function getRuleAttributes(?int $vehicleType, string $name): array
+    public function getRuleAttributes(?int $vehicleTypeId, string $name): array
     {
-        if (null === $vehicleType) {
+        if (null === $vehicleTypeId) {
             return $this->ruleRepository->findOneByName($name)->getAttributes();
         }
 
-        return $this->ruleRepository->findOneByVehicleTypeIdAndName($vehicleType, $name)->getAttributes();
+        return $this->ruleRepository->findOneByVehicleTypeIdAndName($vehicleTypeId, $name)->getAttributes();
     }
 }

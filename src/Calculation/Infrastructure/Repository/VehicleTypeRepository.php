@@ -15,4 +15,14 @@ class VehicleTypeRepository extends ServiceEntityRepository implements VehicleTy
     {
         parent::__construct($registry, VehicleType::class);
     }
+
+    public function findById($vehicleTypeId): VehicleType
+    {
+        return $this->createQueryBuilder('r')
+            ->andWhere("r.id = :id")
+            ->setParameter('id', $vehicleTypeId)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

@@ -9,14 +9,12 @@ use App\Calculation\Application\StorageFeeApplicationInterface;
 use App\Calculation\Application\FeesApplicationInterface;
 use App\Calculation\Application\Service\CalculateServiceInterface;
 use App\Calculation\Domain\Model\PriceModel;
-use App\Calculation\Infrastructure\Repository\RuleRepositoryInterface;
 use App\Calculation\Infrastructure\Repository\VehicleTypeRepositoryInterface;
 
 final class PriceApplication implements PriceApplicationInterface
 {
     public function __construct(
         private VehicleTypeRepositoryInterface $vehicleTypeRepository,
-        private RuleRepositoryInterface $ruleRepository,
         private BasicFeeApplicationInterface $basicFee,
         private SpecialFeeApplicationInterface $specialFee,
         private AssociationFeeApplicationInterface $associationFee,
@@ -28,7 +26,7 @@ final class PriceApplication implements PriceApplicationInterface
 
     public function getPrice(int $vehicleBasePrice, int $vehicleTypeId): array
     {
-        $vehicleTypeName = $this->vehicleTypeRepository->find($vehicleTypeId)->getName();
+        $vehicleTypeName = $this->vehicleTypeRepository->findById($vehicleTypeId)->getName();
 
         $fees = $this->fees->getFees(
             $this->basicFee->getBasicFee($vehicleBasePrice, $vehicleTypeId)->getArray(),

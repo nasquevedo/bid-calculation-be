@@ -9,7 +9,7 @@ final class PriceControllerTest extends WebTestCase
     public function testIndex(): void
     {
         $client = static::createClient();
-        $client->request('GET', '/price');
+        $client->request('GET', 'http://172.18.0.3/api/v1/price?price=398.00&type=1');
 
         self::assertResponseIsSuccessful();
     }
