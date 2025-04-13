@@ -11,12 +11,13 @@ class CalculateService implements CalculateServiceInterface
 
     public function getTotalFees(array $fees): float
     {
+        
         $feesValues = array();
         foreach ($fees as $value) {
             $feesValues[$value['name']] = $value['value'];
         }
-
-        return number_format(array_sum($feesValues), 2);
+    
+        return round(array_sum($feesValues), 2);
     }
 
     public function getTotal(float $vehicleBasePrice, float $totalFees): float

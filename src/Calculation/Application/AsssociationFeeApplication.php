@@ -14,7 +14,7 @@ final class AsssociationFeeApplication implements AssociationFeeApplicationInter
     )
     {}
 
-    public function getAssociationFee(float $vehicleBasePrice): FeeModel
+    public function getAssociationFee(int $vehicleBasePrice): FeeModel
     {
         $rules = $this->ruleService->getRuleAttributes(null, RuleEnums::Association->value);
 

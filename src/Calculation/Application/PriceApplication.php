@@ -31,7 +31,7 @@ final class PriceApplication implements PriceApplicationInterface
         $fees = $this->fees->getFees(
             $this->basicFee->getBasicFee($vehicleBasePrice, $vehicleTypeId)->getArray(),
             $this->specialFee->getSpecialFee($vehicleBasePrice, $vehicleTypeId)->getArray(),
-            $this->associationFee->getAssociationFee($vehicleTypeId)->getArray(),
+            $this->associationFee->getAssociationFee($vehicleBasePrice)->getArray(),
             $this->storageFee->getStorageFee()->getArray() 
         )->getArray();
 

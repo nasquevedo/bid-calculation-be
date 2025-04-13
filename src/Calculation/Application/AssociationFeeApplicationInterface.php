@@ -6,5 +6,5 @@ use App\Calculation\Domain\Model\FeeModel;
 
 interface AssociationFeeApplicationInterface
 {
-    public function getAssociationFee(float $price) :FeeModel;
+    public function getAssociationFee(int $price) :FeeModel;
 }
